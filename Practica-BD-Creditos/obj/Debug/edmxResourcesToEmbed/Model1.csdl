@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="creditosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="correo" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="edad" Type="Int32" />
+    <NavigationProperty Name="creditos" Relationship="Self.FK_creditos_cliente" FromRole="cliente" ToRole="creditos" />
+  </EntityType>
+  <EntityType Name="creditos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+    <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+    <Property Name="monto" Type="Double" />
+    <Property Name="plazo" Type="Int32" />
+    <Property Name="monto_a_pagar" Type="Double" />
+    <Property Name="interes" Type="Int32" />
+    <Property Name="monto_cuota" Type="Double" />
+    <Property Name="idcliente" Type="Int32" />
+    <NavigationProperty Name="cliente" Relationship="Self.FK_creditos_cliente" FromRole="creditos" ToRole="cliente" />
+    <NavigationProperty Name="cuotas" Relationship="Self.FK_cuotas_creditos" FromRole="creditos" ToRole="cuotas" />
+  </EntityType>
+  <EntityType Name="cuotas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idcredito" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="monto" Type="Double" />
+    <NavigationProperty Name="creditos" Relationship="Self.FK_cuotas_creditos" FromRole="cuotas" ToRole="creditos" />
+  </EntityType>
+  <Association Name="FK_creditos_cliente">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="creditos" Type="Self.creditos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="creditos">
+        <PropertyRef Name="idcliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cuotas_creditos">
+    <End Role="creditos" Type="Self.creditos" Multiplicity="0..1" />
+    <End Role="cuotas" Type="Self.cuotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="creditos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cuotas">
+        <PropertyRef Name="idcredito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="creditosEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cliente" EntityType="Self.cliente" />
+    <EntitySet Name="creditos" EntityType="Self.creditos" />
+    <EntitySet Name="cuotas" EntityType="Self.cuotas" />
+    <AssociationSet Name="FK_creditos_cliente" Association="Self.FK_creditos_cliente">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="creditos" EntitySet="creditos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cuotas_creditos" Association="Self.FK_cuotas_creditos">
+      <End Role="creditos" EntitySet="creditos" />
+      <End Role="cuotas" EntitySet="cuotas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

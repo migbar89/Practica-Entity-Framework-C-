@@ -1,0 +1,32 @@
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\bin\Debug\Practica-BD-Creditos.exe.config
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\bin\Debug\Practica-BD-Creditos.exe
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\bin\Debug\Practica-BD-Creditos.pdb
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\obj\Debug\Practica-BD-Creditos.csprojAssemblyReference.cache
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\obj\Debug\Practica_BD_Creditos.frm_AgregarCliente.resources
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\obj\Debug\Practica_BD_Creditos.frm_Creditos.resources
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\obj\Debug\Practica_BD_Creditos.frm_verclientes.resources
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\obj\Debug\Practica_BD_Creditos.Properties.Resources.resources
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\obj\Debug\Practica-BD-Creditos.csproj.GenerateResource.cache
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\obj\Debug\Practica-BD-Creditos.csproj.CoreCompileInputs.cache
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\obj\Debug\Practica-BD-Creditos.exe
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\obj\Debug\Practica-BD-Creditos.pdb
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos\Practica-BD-Creditos\obj\Debug\Practica_BD_Creditos.frm_verCreditos.resources
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\bin\Debug\Practica-BD-Creditos.exe.config
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\bin\Debug\Practica-BD-Creditos.exe
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\bin\Debug\Practica-BD-Creditos.pdb
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\obj\Debug\Practica-BD-Creditos.csprojAssemblyReference.cache
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\obj\Debug\Practica_BD_Creditos.frm_AgregarCliente.resources
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\obj\Debug\Practica_BD_Creditos.frm_Creditos.resources
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\obj\Debug\Practica_BD_Creditos.frm_verclientes.resources
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\obj\Debug\Practica_BD_Creditos.frm_verCreditos.resources
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\obj\Debug\Practica_BD_Creditos.Properties.Resources.resources
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\obj\Debug\Practica-BD-Creditos.csproj.GenerateResource.cache
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\obj\Debug\Practica-BD-Creditos.csproj.CoreCompileInputs.cache
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\obj\Debug\Practica-BD-Creditos.exe
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\obj\Debug\Practica-BD-Creditos.pdb
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\bin\Debug\EntityFramework.dll
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\bin\Debug\EntityFramework.xml
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\obj\Debug\Practica-BD-Creditos.csproj.CopyComplete
+C:\Users\miguel\Documents\Visual Studio 2017\proyect\Practica-BD-Creditos - Entity Framework\Practica-BD-Creditos\obj\Debug\Practica_BD_Creditos.frm_AgregarCuota.resources

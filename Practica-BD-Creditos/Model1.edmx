@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="creditosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="nchar" MaxLength="10" />
+          <Property Name="direccion" Type="nchar" MaxLength="100" />
+          <Property Name="correo" Type="nchar" MaxLength="100" />
+          <Property Name="edad" Type="int" />
+        </EntityType>
+        <EntityType Name="creditos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_fin" Type="date" />
+          <Property Name="monto" Type="float" />
+          <Property Name="plazo" Type="int" />
+          <Property Name="monto_a_pagar" Type="float" />
+          <Property Name="interes" Type="int" />
+          <Property Name="monto_cuota" Type="float" />
+          <Property Name="idcliente" Type="int" />
+        </EntityType>
+        <EntityType Name="cuotas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idcredito" Type="int" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="monto" Type="float" />
+        </EntityType>
+        <Association Name="FK_creditos_cliente">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+          <End Role="creditos" Type="Self.creditos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="creditos">
+              <PropertyRef Name="idcliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cuotas_creditos">
+          <End Role="creditos" Type="Self.creditos" Multiplicity="0..1" />
+          <End Role="cuotas" Type="Self.cuotas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="creditos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cuotas">
+              <PropertyRef Name="idcredito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="creditosModelStoreContainer">
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="creditos" EntityType="Self.creditos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cuotas" EntityType="Self.cuotas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_creditos_cliente" Association="Self.FK_creditos_cliente">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="creditos" EntitySet="creditos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cuotas_creditos" Association="Self.FK_cuotas_creditos">
+            <End Role="creditos" EntitySet="creditos" />
+            <End Role="cuotas" EntitySet="cuotas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="creditosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="correo" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="edad" Type="Int32" />
+          <NavigationProperty Name="creditos" Relationship="Self.FK_creditos_cliente" FromRole="cliente" ToRole="creditos" />
+        </EntityType>
+        <EntityType Name="creditos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+          <Property Name="monto" Type="Double" />
+          <Property Name="plazo" Type="Int32" />
+          <Property Name="monto_a_pagar" Type="Double" />
+          <Property Name="interes" Type="Int32" />
+          <Property Name="monto_cuota" Type="Double" />
+          <Property Name="idcliente" Type="Int32" />
+          <NavigationProperty Name="cliente" Relationship="Self.FK_creditos_cliente" FromRole="creditos" ToRole="cliente" />
+          <NavigationProperty Name="cuotas" Relationship="Self.FK_cuotas_creditos" FromRole="creditos" ToRole="cuotas" />
+        </EntityType>
+        <EntityType Name="cuotas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idcredito" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="monto" Type="Double" />
+          <NavigationProperty Name="creditos" Relationship="Self.FK_cuotas_creditos" FromRole="cuotas" ToRole="creditos" />
+        </EntityType>
+        <Association Name="FK_creditos_cliente">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+          <End Role="creditos" Type="Self.creditos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="creditos">
+              <PropertyRef Name="idcliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cuotas_creditos">
+          <End Role="creditos" Type="Self.creditos" Multiplicity="0..1" />
+          <End Role="cuotas" Type="Self.cuotas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="creditos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cuotas">
+              <PropertyRef Name="idcredito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="creditosEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cliente" EntityType="Self.cliente" />
+          <EntitySet Name="creditos" EntityType="Self.creditos" />
+          <EntitySet Name="cuotas" EntityType="Self.cuotas" />
+          <AssociationSet Name="FK_creditos_cliente" Association="Self.FK_creditos_cliente">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="creditos" EntitySet="creditos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cuotas_creditos" Association="Self.FK_cuotas_creditos">
+            <End Role="creditos" EntitySet="creditos" />
+            <End Role="cuotas" EntitySet="cuotas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="creditosModelStoreContainer" CdmEntityContainer="creditosEntities1">
+          <EntitySetMapping Name="cliente">
+            <EntityTypeMapping TypeName="creditosModel.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creditos">
+            <EntityTypeMapping TypeName="creditosModel.creditos">
+              <MappingFragment StoreEntitySet="creditos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="plazo" ColumnName="plazo" />
+                <ScalarProperty Name="monto_a_pagar" ColumnName="monto_a_pagar" />
+                <ScalarProperty Name="interes" ColumnName="interes" />
+                <ScalarProperty Name="monto_cuota" ColumnName="monto_cuota" />
+                <ScalarProperty Name="idcliente" ColumnName="idcliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cuotas">
+            <EntityTypeMapping TypeName="creditosModel.cuotas">
+              <MappingFragment StoreEntitySet="cuotas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idcredito" ColumnName="idcredito" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
